@@ -10,7 +10,9 @@ client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 def send_message(message):
     message = message.encode("utf8")
     client_socket.sendall(message)
-
+def receive_message(conn):
+       message_server = conn.recv(1024).decode("utf8")
+       return message_server
 
 try:
     #Connecterz la socket au serveur
@@ -19,10 +21,31 @@ try:
     ##Envoie de message 
     data = "Bonjour a toi, je suis le client !"
     #data = data.encode("utf8")
-    send_message(data)
+    
+    
+    ###send_message(data)
+    
+    
     #Envoyez des données sur la socket coté client
     #client_socket.sendall(data)
+    if __name__ == "___main___":
+        while True :
+            text = input("Merci de siaisr votre prenom")
+            send_message(text)
+            message_server = receive_message(client_socket)
+            print(">>> MSG : ", message_server)
+
 except :
     print(">>>Connecton au serveur echouée ! ")
 finally:
     client_socket.close()
+
+
+
+
+
+
+
+
+
+

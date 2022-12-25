@@ -12,7 +12,7 @@ print(">>>Le serveur est demarrer ...")
 nbre = 0 
 def receive_message(conn):
        message_server = conn.recv(1024).decode("utf8")
-       print(">>>MSG : ", message_server)
+       print(">>>Message de client : ", message_server)
 def gestion_client(conn,adrr) :
     print(f'>>>Client : {adrr} connecté')
     connecte = True
