@@ -23,7 +23,6 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #Liez la socket a une adresse et un port
 server_socket.bind((host, port))
 print(">>>Le serveur est demarrer ...")
-nbre = 0 
 #Ecoutez les connecions entrantes
 server_socket.listen(5)
 print("En ecoute")
