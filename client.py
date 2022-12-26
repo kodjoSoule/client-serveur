@@ -19,29 +19,21 @@ try:
     #Connecterz la socket au serveur
     client_socket.connect((host, port))
     print(">>>Client connecté !")
-    ##Envoie de message 
-    data = "Bonjour a toi, je suis le client !"
-    #data = data.encode("utf8")
     
     
-    ###send_message(data)
-    
-    
-    #Envoyez des données sur la socket coté client
-    #client_socket.sendall(data)
     #if __name__ == "___main___":
     while True :
         text = input("Merci de siaisr votre prenom : ")
         send_message(text)
+        verifie = 0
         print("1__Oui")
         print("2__Non")
-        verifie = int(input(">\:"))
-        if verifie == 2 :
+        while(verifie !='1' and verifie !='2') :
+            verifie = input(">\: ")
+        if verifie == '2' :
             break
-        #message_server = receive_message(client_socket)
-        #print(">>> MSG : ", message_server)
 except :
-    print(">>>Connecton au serveur echouée ! ")
+    print("> Connecton au serveur echouée ! ")
 #finally:
 #    client_socket.close()
 
