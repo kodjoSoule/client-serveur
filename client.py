@@ -14,7 +14,18 @@ def receive_message(conn):
        message_server = conn.recv(1024).decode("utf8")
        return message_server
        ##cd Desktop\Python\client_serveur
-
+def faireChoix():
+    choix = 0 
+    print('****************')
+    print("1_Operation")
+    print("2_Banque")
+    print("q_Quitter")
+    print('Votre choix:')
+    while(choix != 1 and choix != 2):
+        choix = input(">\:")
+        if choix == 'q':
+            return 0
+    return choix 
 def faireOperation() :
     choix = 0
     print("1_addition")
@@ -57,6 +68,7 @@ try:
     
     #if __name__ == "___main___":
     while True :
+        choix = faireChoix()
         #text = input("Merci de siaisr votre prenom : ")
         #send_message(text)
         messageT = faireOperation()
@@ -79,6 +91,9 @@ except :
     print("> Connecton au serveur echouée ! ")
 #finally:
 #    client_socket.close()
+
+if __name__=="__main__":
+    choix = faireChoix()
 
 
 
