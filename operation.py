@@ -28,12 +28,12 @@ if __name__== "__main__":
     somme=addition(7,5)
     division=div(8,3)
     soustraction=soust(6,2)
-    facto=fact()
+    fact=fact(4)
     print(division)
     print(soustraction)
     print(somme)
     print(multi)
-    print(facto)
+    print(fact)
     print(fibo)
 
 
