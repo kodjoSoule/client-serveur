@@ -19,13 +19,14 @@ def faireChoix():
     print('****************')
     print("1_Operation")
     print("2_Banque")
-    print("q_Quitter")
     print('Votre choix:')
     while(choix != 1 and choix != 2):
         choix = input(">\:")
-        if choix == 'q':
-            return 0
-    return choix 
+        if choix == '1':
+            return 1
+        if choix == '2':
+            return 2
+
 def faireOperation() :
     choix = 0
     print("1_addition")
@@ -65,28 +66,54 @@ try:
     #Connecterz la socket au serveur
     client_socket.connect((host, port))
     print(">Client connecté !")
-    
-    #if __name__ == "___main___":
-    while True :
-        choix = faireChoix()
-        #text = input("Merci de siaisr votre prenom : ")
-        #send_message(text)
-        messageT = faireOperation()
-        send_message(messageT)
-        print("En attente de resultat....")
-        # Reception du résultat du serveur
-        resultat = client_socket.recv(TAILLE).decode(FORMAT)
+    choix2 = faireChoix()
+    print('Choix est : ', choix2)
 
-        #Affichage du résultat
-        print(f"Résultat : {resultat}")
+    if choix2 == 1:
+        # Operation 
+        #if __name__ == "___main___":
+        while True :
 
-        verifie = '0'
-        print("1__Oui")
-        print("2__Non")
-        while(verifie !='1' and verifie !='2') :
-            verifie = input(">\: ")
-        if verifie == '2' :
-            break
+            
+            #text = input("Merci de siaisr votre prenom : ")
+            #send_message(text)
+            messageT = faireOperation()
+            send_message(messageT)
+            print("En attente de resultat....")
+            # Reception du résultat du serveur
+            resultat = client_socket.recv(TAILLE).decode(FORMAT)
+
+            #Affichage du résultat
+            print(f"Résultat : {resultat}")
+
+            verifie = '0'
+            print("1__Oui")
+            print("2__Non")
+            while(verifie !='1' and verifie !='2') :
+                verifie = input(">\: ")
+            if verifie == '2' :
+                break
+    if choix2 == 2:
+        # Banque
+        while True :
+            #text = input("Merci de siaisr votre prenom : ")
+            #send_message(text)
+            messageT = banque()
+            send_message(messageT)
+            print("En attente de resultat....")
+            # Reception du résultat du serveur
+            resultat = client_socket.recv(TAILLE).decode(FORMAT)
+
+            #Affichage du résultat
+            print(f"Résultat : {resultat}")
+
+            verifie = '0'
+            print("1__Oui")
+            print("2__Non")
+            while(verifie !='1' and verifie !='2') :
+                verifie = input(">\: ")
+            if verifie == '2' :
+                break
 except :
     print("> Connecton au serveur echouée ! ")
 #finally:
