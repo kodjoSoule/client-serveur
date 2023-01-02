@@ -62,6 +62,26 @@ def faireOperation() :
         return str(choix) +' '+nbr1
     else:
         return "fin"
+def banque():
+    choixBanque = 0
+    print('1_creerCompte') 
+    print('2_consulter') 
+    print('3_depot')
+    print('4_virement') 
+    print('5_retrait')
+    print('6_Fin')
+    while( choix < 1 or choix > 6 ):
+        choix = int(input("\>:"))
+    if choix == 1:
+        titulaire = input('titulaire : ')
+        numero = input('numero : ')
+        solde = input('solde : ')
+        Type = input('Type : ')
+        status = input('Status : ')
+        code = input('code : ')
+        return str(choixBanque) +'/'+titulaire+'/'+numero+'/'+solde+'/'+Type+'/'+status+'/'+code
+    else:
+        return "fin"
 try:
     #Connecterz la socket au serveur
     client_socket.connect((host, port))
